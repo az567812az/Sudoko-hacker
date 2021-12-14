@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <stdio.h>
+#include <string.h>
 using namespace std;
 //數獨長寬大小
 #define Maxsize 9  	
@@ -9,7 +13,7 @@ vector<int> Block_Allow_Num[Maxsize];
 
 int Matrix [Maxsize][Maxsize];
 
-int Find_witchblock(int row, int col)
+int Find_which_block(int row, int col)
 {
 	row = row/3*3;
 	col = col/3;
@@ -71,7 +75,7 @@ void Check_allownum()
 	{
 		for(int j=0;j<Maxsize;j++)
 		{
-			int index = Find_witchblock(i,j);
+			int index = Find_which_block(i,j);
 			int val = Matrix[i][j];
 			if(val == 0) continue;
 			vector<int>::iterator it;
@@ -167,7 +171,7 @@ void DFS(int currnum, int Pendnum, vector<int> & Rowlist, vector<int> & Collist)
 	}
 	int row = Rowlist[currnum];
 	int col = Collist[currnum];
-	int block = Find_witchblock(row,col);
+	int block = Find_which_block(row,col);
 	vector<int> Possible_value = Find_intersection(row,col,block);
 /*	for(int i=0;i<Possible_value.size();i++) 
 		cout<<Possible_value[i]<<" ";
