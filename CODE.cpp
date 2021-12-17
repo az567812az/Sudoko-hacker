@@ -13,6 +13,7 @@ vector<int> Block_Allow_Num[Maxsize];
 
 int Matrix [Maxsize][Maxsize];
 
+//判斷是在哪個9宮格
 int Find_which_block(int row, int col)
 {
 	row = row/3*3;
@@ -20,6 +21,7 @@ int Find_which_block(int row, int col)
 	return row+col;
 }
 
+//初始化所有9宮格的數字都允許
 void init_Block_Allow()
 {
 	for(int i=0;i<Maxsize;i++)
@@ -91,7 +93,6 @@ void Check_allownum()
 	}
 }
 
-
 //將數獨結果印出來
 void Print_it_out()
 {
@@ -113,7 +114,6 @@ void Print_it_out()
 		}
 	cout<<"*****************\n";
 }
-
 
 // 讓使用者輸入欲破解之數獨題目
 void init_Matrix()
@@ -146,6 +146,7 @@ int Find_empty_block(vector<int> &Empty_row, vector<int> &Empty_col)
 	return pendnum;
 }
 
+//判斷列、行、9宮格中允許填入的數字的交集
 vector<int> Find_intersection (int row, int col ,int block )
 {
 	bool R[Maxsize+1];
